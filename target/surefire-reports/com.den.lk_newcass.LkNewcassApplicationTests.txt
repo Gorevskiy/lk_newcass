@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.den.lk_newcass.LkNewcassApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 18.63 s -- in com.den.lk_newcass.LkNewcassApplicationTests

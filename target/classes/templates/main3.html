@@ -1,0 +1,120 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>newKass</title>
+	<link rel="stylesheet" type="text/css" th:href="@{/css/style.css(rnd=${rnd})}" />
+    <script th:src="@{/js/jquery.js}" type="text/javascript"></script>
+    <script th:src="@{/js/blocks.js(rnd=${rnd})}" type="text/javascript"></script>
+    <script th:src="@{/js/myscripts.js(rnd=${rnd})}" type="text/javascript"></script>
+</head>
+<body>
+    <div id='modalForm' class='modal'><div id='contentForm' class='modal_content2'></div></div>
+	<table class="global">
+		<tr>
+			<td class="global-td1" id="status_line">
+				<table border="0" cellspacing="10">
+				  <tr>
+					<td style="color: #A4A6B2;">
+						Dashboards
+					</td>
+				  </tr>
+				  <tr>
+					<td style="color: #5C5F70;padding-top: 30px;">
+						Фискализация
+					</td>
+				  </tr>
+				  <tr>
+					<td style="color: #F8F7F3;font-weight: 700;font-size: 14pt;background: #7e7b7be9;">
+						Кассы
+					</td>
+				  </tr>
+				  <tr>
+					<td style="color: #A4A6B2;">
+						Справочники
+					</td>
+				  </tr>
+				  <tr>
+					<td style="color: #5C5F70;padding-top: 30px;">
+						Система
+					</td>
+				  </tr>
+				  <tr>
+					<td style="color: #A4A6B2;">
+						Журналы
+					</td>
+				  </tr>
+				  <tr>
+					<td style="color: #5C5F70;padding-top: 30px;">
+						Отчеты
+					</td>
+				  </tr>
+				  <tr>
+					<td style="color: #A4A6B2;">
+						По оборотам
+					</td>
+				  </tr>
+				  <tr>
+					<td style="color: #A4A6B2;">
+						По номенклатурам
+					</td>
+				  </tr>
+				</table>
+			</td>
+	        <td class="global-td2">
+	            <table border="0" cellspacing="15" cellpadding="10">
+					<tr>
+						<td style="padding-block-start:15px;vertical-align:top;">
+							<div th:if="${razdel} == 'pos-kkm'">
+								<table border="0" style="margin-block-end: 50px;">
+									<tr>
+										<td style="padding-inline-start: 15px;">Главная</td>
+										<td style="padding-inline-start: 5px;">-</td>
+										<td style="padding-inline-start: 5px;">Кассы</td>
+										<td style="padding-inline-start: 5px;">-</td>
+										<td style="padding-inline-start: 5px;"><b>Список</b></td>
+									</tr>
+								</table>
+								<div th:if="${listPosKkmTxt.size() > 0}">
+									<div><a href="javascript:{}" th:onclick="addNewPosKkmF()" target="_self" class="lnk22">добавить</a></div>
+									<table class="tbl_catalog" cellspacing="0">
+										<tr>
+											<th class="th_catalog">#</th>
+											<th class="th_catalog">ИНН</th>
+											<th class="th_catalog">Вер.</th>
+											<th class="th_catalog">Модель<br/>ККМ</th>
+											<th class="th_catalog">Заводской<br/>номер</th>
+											<th class="th_catalog">ФН ККМ</th>
+											<th class="th_catalog">Статус ФН</th>
+											<th class="th_catalog">РНН ККМ</th>
+											<th class="th_catalog">ГНС</th>
+											<th class="th_catalog">Биллинг</th>
+											<th>&nbsp;</th>
+										</tr>
+										<tr th:each="lists : ${listPosKkmTxt}">
+											<td class="td_catalog21" th:text="${lists.getNpp()}" />
+											<td class="td_catalog21" th:text="${lists.getInn()}" />
+											<td class="td_catalog21" th:text="${lists.getKkmVersion()}" />
+											<td class="td_catalog21" th:text="${lists.getKkmModel()}" />
+											<td class="td_catalog21" th:text="${lists.getKkmZavNum()}" />
+											<td class="td_catalog21" th:text="${lists.getKkmFn()}" />
+											<td class="td_catalog21" th:text="${lists.getKkmFnStatus()}" />
+											<td class="td_catalog21" th:text="${lists.getKkmRnn()}" />
+											<td class="td_catalog21" th:text="${lists.getGns()}" />
+											<td class="td_catalog21" th:text="${lists.getBilling()}" />
+											<td style="padding-inline-start:15px;">&nbsp;</td>
+										</tr>
+									</table>
+								</div>
+								<div th:unless="${listPosKkmTxt.size() > 0}">
+									<span>Список pos kkm пуст...</span>
+								</div>
+							</div>
+						</td>
+					</tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
